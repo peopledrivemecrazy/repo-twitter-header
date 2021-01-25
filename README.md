@@ -1,5 +1,7 @@
 # repo-twitter-header
 
+Do not attempt to use it yet!
+
 This repo currently shows stars on sveltejs/svelte
 
 This project uses node-canvas, if you would like to manipulate the header image to show other custom images/text check the repo [node-canvas](https://github.com/Automattic/node-canvas)
