@@ -77,9 +77,5 @@ const applyText = (canvas, text) => {
     })
     .catch(console.error);
 
-  fs.writeFileSync(
-    "out.jpg",
-    canvas.toBuffer(undefined, 3, canvas.PNG_FILTER_NONE)
-  );
   setTimeout(getStars, timer);
 })();
