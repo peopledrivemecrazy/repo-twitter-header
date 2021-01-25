@@ -3,12 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "author": "Shriji",
-  "type": "module",
   "license": "MIT",
   "dependencies": {
     "canvas": "^2.6.1",
     "dotenv": "^8.2.0",
-    "httpie": "^1.1.2",
+    "node-fetch": "^2.6.1",
     "twitter-lite": "^0.14.0"
   },
   "scripts": {

@@ -1,11 +1,12 @@
-import { send } from "httpie";
-import dotenv from "dotenv";
+const fetch = require('node-fetch');
+
+const dotenv = require('dotenv')
 dotenv.config();
-import Twitter from "twitter-lite";
 
-import { createRequire } from "module";
+const Twitter = require("twitter-lite")
 
-const require = createRequire(import.meta.url);
+
+
 
 const { createCanvas, loadImage } = require("canvas");
 const fs = require("fs");
@@ -16,7 +17,9 @@ const API_SECRET = process.env.API_SECRET;
 const ACCESS_TOKEN = process.env.ACCESS_TOKEN;
 const ACCESS_TOKEN_SECRET = process.env.ACCESS_TOKEN_SECRET;
 
-const timer = 60000
+const second = 1000
+const minute = second * 60
+const timer = 9 * minute
 
 const client = new Twitter({
   subdomain: "api",
@@ -41,13 +44,16 @@ const applyText = (canvas, text) => {
 
 (async function getStars() {
   let starsCount = "";
-  let stars = await send("GET", URL, {
+  let stars = await fetch(URL, {
+    method: "GET",
     headers: {
       "User-Agent": "request",
     },
   });
-  starsCount = stars.data.stargazers_count;
-  console.log(`Stars: ${stars.data.stargazers_count}`);
+  let resp = await stars.json()
+
+  starsCount = resp.stargazers_count;
+  console.log(`Stars: ${resp.stargazers_count}`);
 
   const canvas = createCanvas(1500, 497);
   const ctx = canvas.getContext("2d");
